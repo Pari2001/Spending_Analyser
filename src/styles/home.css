@@ -1,0 +1,84 @@
+.goldenLeafContainer {
+    background-image: url('../images/pokemon-sv-leaf-circle.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.home__section{
+    height: 100vh;
+}
+
+
+.home__container {
+    grid-template-columns: repeat(1, 1fr) !important;
+}
+
+.home_container_dialogue {
+    min-height: 15rem;
+    font-size: var(--big-font-size);
+    font-weight: var(--font-semi-bold);
+}
+
+.style__home {
+    padding: var(--mb-1-5) 0;
+}
+
+@media screen and (max-width: 567px) {
+    .home__section{
+        padding-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 568px) {
+    .home_container_dialogue {
+        min-height: 22rem;
+    }
+
+    .style__home {
+        padding: var(--mb-3) 0;
+        height: 70vh;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .home__container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        justify-content: center;
+    }
+    .style__home {
+        padding: var(--mb-3) 0;
+    }
+}
+
+
+.oscillate{
+    animation-name: oscillate;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    position: relative !important;
+    animation-timing-function: linear !important;
+}
+
+
+/* ANiMaTion */
+@keyframes oscillate {
+    0% {
+        top: 0rem;
+    }
+
+    25% {
+        top: -1rem;
+    }
+
+    50% {
+        top: 0rem;
+    }
+
+    75% {
+        top: 1rem;
+    }
+
+    100% {
+        top: 0rem;
+    }
+}

@@ -1,0 +1,185 @@
+.balance__content {
+    /* padding: 1rem; */
+    background-color: var(--container-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+/* 
+.start_calendar{
+    background-color: var(--container-color);
+    border: 1px solid var(--title-color);
+    color: var(--title-color);
+    font-family: 'Poppins', sans-serif !important;
+} */
+
+.balance__content:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.balance__transaction__content{
+    background-color: var(--background-color) !important;
+}
+
+.balance__padding{
+    padding: 1.5rem 1rem;
+}
+
+.transaction__container{  
+    grid-template-columns: repeat(1, 1fr) !important;
+    justify-content: center;
+}
+
+.transaction__card {
+    width: 100%;
+    /* max-width: 100%; */
+    height: 6rem;
+    /* margin-bottom: 2rem; */
+    /* background-color: var(--container-color); */
+}
+
+.transaction__ {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete__button {
+    color: var(--first-color);
+}
+
+.balance__transaction__content {
+    max-width: 100%;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--container-color);
+}
+
+.sp-card {
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); */
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+/* .sp-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+} */
+.voltorb {
+    transition: all 0.5s ease;
+    transform: rotateY(180deg);
+}
+
+.poke {
+    position: relative;
+}
+
+.front {
+    backface-visibility: hidden;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    height: 5rem;
+    border-radius: 0.3rem;
+    width: 100%;
+    /* max-width: 100%; */
+    padding: 0.5rem 1rem;
+    background-color: var(--container-color);
+}
+
+.front:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: rotateY(180deg);
+    height: 5rem;
+    overflow-y: scroll;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    /* max-width: 100%; */
+    border-radius: 0.3rem;
+    background-color: var(--container-color);
+}
+.back:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.pokemon-tag {
+    height: 0.75rem;
+    width: 0.75rem !important;
+    border-radius: 50%;
+    background-color: gold;
+    margin-right: 0.25rem;
+}
+
+
+.category-style {
+    border-radius: 1rem;
+    padding: 0.15rem 0.3rem;
+    background-color: var(--body-color);
+}
+
+.transaction__top {
+    margin-bottom: 0.5rem;
+}
+
+.transaction__back {
+    color: var(--title-color);
+}
+
+.calendar__open__button{
+    background-color: var(--container-color);
+    color: var(--title-color);
+    border: 1px solid var(--title-color);
+}
+
+.less__margin__subtitle{
+    margin-bottom: var(--mb-2);
+}
+
+.marginBottom3{
+    margin-bottom: var(--mb-3);
+}
+
+.balance__modal{
+    
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  z-index: var(--z-modal);
+  /* opacity: 0; */
+  /* visibility: hidden; */
+  transition: .3s;
+}
+
+.modify__calendar__container{
+    padding-top: var(--mb-2);
+    padding-bottom: var(--mb-1);
+    background-color: var(--container-color);
+    max-width: 95vw;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.calendar__button__container{
+    padding: 0 0.5rem;
+    /* display: flex; */
+    /* justify-content: space-between; */
+}
+
+.custom__button{
+    border: none;
+    font-family: 'Poppins', sans-serif !important;
+}

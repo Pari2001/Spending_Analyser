@@ -1,0 +1,17 @@
+.error{
+    color: var(--title-color);
+    font-size: var(--h2-font-size);
+    text-align: center;
+}
+
+.error__buttons{
+    margin-top: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: var(--normal-font-size);
+}
+
+.error-image{
+    height: 25rem;
+    padding: 4rem 2rem;
+}
