@@ -107,29 +107,6 @@ const NewBalance = () => {
 
     }, [currentUser]);
 
-
-    const usersCollectionRef = collection(db, `users`);
-
-    useEffect(() => {
-
-        onSnapshot(usersCollectionRef, (snapshot) => {
-            const users = snapshot.docs.map((doc) => {
-                return {
-                    id: doc.id,
-                    ...doc.data()
-                };
-            })
-
-            const result = users.filter((element, index) => {
-                return (element.uid === currentUser.uid);
-            })
-
-            setUser(result);
-        });
-
-    }, [currentUser]);
-
-
     useEffect(() => {
         if (notebook.length > 0) {
             setTransaction(
@@ -188,8 +165,8 @@ const NewBalance = () => {
             return ;
         }
 
-        const newincome = parseInt(user[0].income)  + parseInt(income);
-        updateDoc(doc(db, `users/${currentUser.uid}`),{
+        const newincome = parseInt(notebook[0].income)  + parseInt(income);
+        updateDoc(doc(db, `users/${currentUser.uid}/notebooks/${notebookName}`),{
             income: newincome,
         });
 
@@ -368,7 +345,7 @@ const NewBalance = () => {
                                                 <div onClick={() => { setOpenModal(true); }} className="balance__content">
                                                     <div className='balance__padding'>
                                                         <h4 className='flexy balance-title'>Income</h4>
-                                                        <div className=" flexy services__title">Rs {`${user[0].income}`}</div>
+                                                        <div className=" flexy services__title">Rs {`${notebook[0].income}`}</div>
                                                         <div className='flexy'>
                                                             <div className="button income-button">
                                                                 <i class="uil uil-link-add"></i>Add Income
@@ -381,7 +358,7 @@ const NewBalance = () => {
                                                 <div className="balance__content flexy">
                                                     <div className='balance__padding'>
                                                         <h4 className='flexy balance-title mb-3'>Current Balance</h4>
-                                                        <div className=" flexy services__title">Rs {`${user[0].income - total}`}</div>
+                                                        <div className=" flexy services__title">Rs {`${notebook[0].income - total}`}</div>
                                                     </div>
                                                 </div>
                                             </div>

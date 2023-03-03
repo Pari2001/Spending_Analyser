@@ -105,6 +105,7 @@ const Notebook = () => {
             description: notebookDescription.trim(),
             categories: submitCategoryArray,
             transactions: [],
+            income: 0,
             createdAt: serverTimestamp(),
         })
 
