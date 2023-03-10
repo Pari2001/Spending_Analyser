@@ -60,7 +60,7 @@ const NewBalance = () => {
     const [openModal, setOpenModal] = useState(false);
     const [income, setIncome] = useState(0);
     const [incomeValueError, setIncomeValueError] = useState(false);
-    const [incomeInput, setIncomeInput] = useState(0);
+    const [incomeInput, setIncomeInput] = useState('');
 
 
     const defaultStart = new Date(1950, 0, 1, 0, 0, 0, 0);
@@ -175,6 +175,16 @@ const NewBalance = () => {
     }
 
     function isNumeric(str) {
+
+        if (typeof(str) == 'number') {
+            str = str.toString();
+        }
+          
+        // Check if input is empty
+        if (str.trim() === '') {
+            return false;
+        }
+
         return /^\d+(\.\d{1,2})?$/.test(str);
     }
 
@@ -320,14 +330,18 @@ const NewBalance = () => {
                                         <i
                                             onClick={() => {
                                                 setOpenModal(false);
+                                                setIncomeValueError(false);
                                             }}
                                             className="uil uil-times services__modal-close"></i>
 
                                         <div class="services__form-content mb-3">
                                             <label for="" className="services__label">Insert Amount</label>
                                             <input
-                                            onChange={(event)=>{setIncomeInput(event.target.value);}}
-                                             type="text" className="services__input" />
+                                            onChange={(event)=>{
+                                                setIncomeInput(event.target.value);
+                                                setIncomeValueError(false);
+                                            }}
+                                            type="text" className="services__input" />
                                         </div>
 
                                         {
@@ -339,7 +353,7 @@ const NewBalance = () => {
                                                     <div className='flexy'>
                                                         <i
                                                             onClick={() => {
-                                                                setIncomeInput(0);
+                                                                setIncomeInput('');
                                                                 setIncomeValueError(false);
                                                             }}
                                                             className="uil uil-times error_close">

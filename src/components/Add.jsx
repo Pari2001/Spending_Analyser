@@ -31,7 +31,17 @@ const Add = (props) => {
     const [reasonError, setReasonError] = useState(false);
     const [amountError, setAmountError] = useState(false);
 
-    function isNumeric(str) {
+    function isNumeric(str) {   
+                     
+        if (typeof(str) == 'number') {
+            str = str.toString();
+        }
+          
+        // Check if input is empty
+        if (str.trim() === '') {
+            return false;
+        }
+
         return /^\d+(\.\d{1,2})?$/.test(str);
     }
 
