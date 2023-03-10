@@ -21,7 +21,6 @@ const Add = (props) => {
 
     const uid = props.uid;
     const notebook = props.notebook;
-    // const [notebook, setNotebook] = useState([]);
 
     const [amount, setAmount] = useState("")
     const [category, setCategory] = useState("");
@@ -65,10 +64,6 @@ const Add = (props) => {
             amount: amount.trim(),
             description: description.trim(),
             fulldate: date,
-            // day: date.getDay(),
-            // date: date.getDate(),
-            // month: date.getMonth(),
-            // year: date.getFullYear()
         }
         arr.unshift(form);
         setup.transactions = arr;
@@ -159,8 +154,6 @@ const Add = (props) => {
                                 </i>
                             </div>
 
-                            {/* {
-                                    show &&  */}
                             <ul className={`dropdown-menu ${!show ? 'hide-menu' : ''} rounded`} aria-labelledby="dropdownMenuButton1">{
                                 (notebook !== undefined ?
                                     notebook.categories.map((individualCategory, index) => {
@@ -173,7 +166,7 @@ const Add = (props) => {
                                 )
                             }
                             </ul>
-                            {/* } */}
+
                         </div>
                         <div class="services__form-content mb1_5">
                             <label for="" className="services__label">Amount</label>

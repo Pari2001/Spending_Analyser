@@ -60,6 +60,7 @@ const NewBalance = () => {
     const [openModal, setOpenModal] = useState(false);
     const [income, setIncome] = useState(0);
     const [incomeValueError, setIncomeValueError] = useState(false);
+    const [incomeInput, setIncomeInput] = useState(0);
 
 
     const defaultStart = new Date(1950, 0, 1, 0, 0, 0, 0);
@@ -102,6 +103,16 @@ const NewBalance = () => {
                 })
                 setTotal(arr[0])
 
+
+                const incomearr = new Array(1).fill(0);
+                result[0].income.forEach((pay) => {
+                    if (((new Date(pay.fulldate.seconds * 1000)) >= startDate && (new Date(pay.fulldate.seconds * 1000)) <= endDate)) {
+                        incomearr[0] += parseInt(pay.amount);
+                    }
+                })
+                console.log(incomearr[0]);
+                setIncome(incomearr[0])
+
             }
         });
 
@@ -122,6 +133,15 @@ const NewBalance = () => {
                 }
             })
             setTotal(arr[0])
+
+            const incomearr = new Array(1).fill(0);
+            notebook[0].income.forEach((pay) => {
+                if (((new Date(pay.fulldate.seconds * 1000)) >= startDate && (new Date(pay.fulldate.seconds * 1000)) <= endDate)) {
+                    incomearr[0] += parseInt(pay.amount);
+                }
+            })
+            setIncome(incomearr[0])
+
         }
     }, [startDate, endDate])
 
@@ -160,17 +180,21 @@ const NewBalance = () => {
 
     const addIncome = () => {
 
-        if(!isNumeric(income)){
+        if(!isNumeric(incomeInput)){
             setIncomeValueError(true);
             return ;
         }
 
-        const newincome = parseInt(notebook[0].income)  + parseInt(income);
-        updateDoc(doc(db, `users/${currentUser.uid}/notebooks/${notebookName}`),{
-            income: newincome,
+        const date = new Date();
+        // Atomically add a new region to the "regions" array field.
+        updateDoc(doc(db, `users/${currentUser.uid}/notebooks/${notebookName}`), {
+            income: arrayUnion({
+                amount: parseInt(incomeInput),
+                fulldate: date,
+            })
         });
-
-        setIncome(0);
+        
+        setIncomeInput(0);
         setOpenModal(false);
     }
 
@@ -302,7 +326,7 @@ const NewBalance = () => {
                                         <div class="services__form-content mb-3">
                                             <label for="" className="services__label">Insert Amount</label>
                                             <input
-                                            onChange={(event)=>{setIncome(event.target.value);}}
+                                            onChange={(event)=>{setIncomeInput(event.target.value);}}
                                              type="text" className="services__input" />
                                         </div>
 
@@ -315,7 +339,7 @@ const NewBalance = () => {
                                                     <div className='flexy'>
                                                         <i
                                                             onClick={() => {
-                                                                setIncome(0);
+                                                                setIncomeInput(0);
                                                                 setIncomeValueError(false);
                                                             }}
                                                             className="uil uil-times error_close">
@@ -344,11 +368,11 @@ const NewBalance = () => {
                                             <div>
                                                 <div onClick={() => { setOpenModal(true); }} className="balance__content">
                                                     <div className='balance__padding'>
-                                                        <h4 className='flexy balance-title'>Income</h4>
-                                                        <div className=" flexy services__title">Rs {`${notebook[0].income}`}</div>
+                                                        <h4 className='flexy balance-title'>Total Balance</h4>
+                                                        <div className=" flexy services__title">Rs {`${income}`}</div>
                                                         <div className='flexy'>
                                                             <div className="button income-button">
-                                                                <i class="uil uil-link-add"></i>Add Income
+                                                                <i class="uil uil-link-add"></i>Add Balance
                                                             </div>
                                                         </div>
                                                     </div>
@@ -358,7 +382,7 @@ const NewBalance = () => {
                                                 <div className="balance__content flexy">
                                                     <div className='balance__padding'>
                                                         <h4 className='flexy balance-title mb-3'>Current Balance</h4>
-                                                        <div className=" flexy services__title">Rs {`${notebook[0].income - total}`}</div>
+                                                        <div className=" flexy services__title">Rs {`${income - total}`}</div>
                                                     </div>
                                                 </div>
                                             </div>
