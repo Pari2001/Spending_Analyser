@@ -1500,5 +1500,5 @@ button {
 }
 
 .section_side_padding{
-  padding: 1.25rem 0.5rem;
+  padding: 1.25rem 0.25rem !important;
 }
