@@ -1494,3 +1494,7 @@ button {
 .error_close{
   cursor: pointer;
 }
+
+.wordBreak{
+  word-break: break-all;
+}
