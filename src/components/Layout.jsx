@@ -232,14 +232,14 @@ const NewBalance = () => {
 
                             <div className="services__container mb-3 container grid layout__cards__container grid2">
 
-                                <div className="flexy second__color p2">
+                                <div className="flexy second__color p2 section_side_padding">
                                     <div>
-                                        <h2 className="section__title bigger__text wordBreak section_side_padding">{notebookName}</h2>
-                                        <span className="section__subtitle less__margin__subtitle wordBreak section_side_padding">{notebook[0].description.charAt(0).toUpperCase() + notebook[0].description.slice(1)}</span>
+                                        <h2 className="section__title bigger__text wordBreak">{notebookName}</h2>
+                                        <span className="section__subtitle less__margin__subtitle wordBreak">{notebook[0].description.charAt(0).toUpperCase() + notebook[0].description.slice(1)}</span>
                                     </div>
                                 </div>
 
-                                <div className='flexy second__color p2'>
+                                <div className='flexy second__color p2 section_side_padding'>
                                     <div>
                                         <h2 className="section__title fontWeightNormal">Timeline</h2>
                                         <span className="section__subtitle less__margin__subtitle">Get details of current balance here</span>
