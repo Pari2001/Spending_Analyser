@@ -234,8 +234,8 @@ const NewBalance = () => {
 
                                 <div className="flexy second__color p2">
                                     <div>
-                                        <h2 className="section__title bigger__text word-break">{notebookName}</h2>
-                                        <span className="section__subtitle less__margin__subtitle word-break">{notebook[0].description.charAt(0).toUpperCase() + notebook[0].description.slice(1)}</span>
+                                        <h2 className="section__title bigger__text wordBreak">{notebookName}</h2>
+                                        <span className="section__subtitle less__margin__subtitle wordBreak">{notebook[0].description.charAt(0).toUpperCase() + notebook[0].description.slice(1)}</span>
                                     </div>
                                 </div>
 
