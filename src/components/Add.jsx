@@ -91,7 +91,7 @@ const Add = (props) => {
                 error &&
                 <div className="services__modal">
                     <div className="services__modal-content login__error__modal-content">
-                        <h4 className="services__modal-title">Lechonk <br /> Guidelines</h4>
+                        <h4 className="services__modal-title">Spending <br /> Analyser</h4>
                         <i
                             onClick={() => {
                                 setError(false);
@@ -109,7 +109,7 @@ const Add = (props) => {
                 reasonError &&
                 <div className="services__modal">
                     <div className="services__modal-content login__error__modal-content">
-                        <h4 className="services__modal-title">Lechonk <br /> Guidelines</h4>
+                        <h4 className="services__modal-title">Spending <br /> Analyser</h4>
                         <i
                             onClick={() => {
                                 setReasonError(false);
@@ -127,7 +127,7 @@ const Add = (props) => {
                 amountError &&
                 <div className="services__modal">
                     <div className="services__modal-content login__error__modal-content">
-                        <h4 className="services__modal-title">Lechonk <br /> Guidelines</h4>
+                        <h4 className="services__modal-title">Spending <br /> Analyser</h4>
                         <i
                             onClick={() => {
                                 setAmountError(false);
